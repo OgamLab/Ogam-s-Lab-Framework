@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketHelmetBase">
+		<defName>TEST_Helmet</defName>
+		<label>TEST helmet</label>
+		<shortDescription>.</shortDescription>
+		<description>.</description>
+		<graphicData>
+			<texPath>TEST/helmet</texPath>
+		</graphicData>
+		<uiIconScale>1.25</uiIconScale>
+		<statBases>
+			<Mass>5</Mass>
+			<ArmorRating_Sharp>1.06</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.64</ArmorRating_Heat>
+			<Insulation_Cold>4</Insulation_Cold>
+			<Insulation_Heat>2</Insulation_Heat>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.1</MoveSpeed>
+			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.1</SlaveSuppressionOffset>
+		</equippedStatOffsets>
+		<costList>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<Steel>40</Steel>
+		</costList>
+		<researchPrerequisites>
+			<li>VFEP_Warcaskets</li>
+		</researchPrerequisites>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>TEST/helmet</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Warcasket</li>
+				<li>WarcasketVeteran</li>
+				<li>WarcasketAll</li>
+			</tags>
+		</apparel>
+		<comps>
+			<li Class="Grimforge.CompProperties_Decals">
+				<texPaths>
+					<li>TEST/Decals/helmet_dec_1</li>
+					<li>TEST/Decals/helmet_dec_2</li>
+				</texPaths>
+			</li>
+		</comps>
+	</VFEPirates.WarcasketDef>
+
+</Defs>

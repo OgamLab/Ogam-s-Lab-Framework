@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketArmorBase">
+		<defName>TESTWarcasket</defName>
+		<label>TESTwarcasket</label>
+		<shortDescription>.</shortDescription>
+		<description>.</description>
+		<graphicData>
+			<texPath>TEST/chest</texPath>
+		</graphicData>
+		<statBases>
+			<Mass>50</Mass>
+			<ArmorRating_Sharp>1.06</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.64</ArmorRating_Heat>
+			<Insulation_Cold>20</Insulation_Cold>
+			<Insulation_Heat>7</Insulation_Heat>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.5</MoveSpeed>
+			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.3</SlaveSuppressionOffset>
+		</equippedStatOffsets>
+		<costList>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Steel>80</Steel>
+			<Uranium>20</Uranium>
+		</costList>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Legs</li>
+				<li>Feet</li>
+			</bodyPartGroups>
+			<wornGraphicPath>TEST/chest</wornGraphicPath>
+			<layers>
+			    <li>OnSkin</li>
+				<li>Middle</li>
+				<li>Shell</li>
+			</layers>
+			<tags>
+				<li>Warcasket</li>
+				<li>WarcasketVeteran</li>
+				<li>WarcasketAll</li>
+			</tags>
+		</apparel>
+		<researchPrerequisites>
+			<li>VFEP_Warcaskets</li>
+		</researchPrerequisites>
+		<modExtensions>
+			<li Class="VFECore.ApparelExtension">
+				<traitsOnEquip>
+					<li>VFEP_WarcasketTrait</li>
+				</traitsOnEquip>
+				<traitsOnUnequip>
+					<li>VFEP_Shellcasket</li>
+				</traitsOnUnequip>
+				<carryingCapacity>75</carryingCapacity>
+				<pawnCapacityMinLevels>
+					<li>
+						<capacity>Moving</capacity>
+						<minLevel>0.7</minLevel>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<minLevel>0.7</minLevel>
+					</li>
+				</pawnCapacityMinLevels>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="Grimforge.CompProperties_Decals">
+				<texPaths>
+					<li>TEST/Decals/chest_dec1</li>
+					<li>TEST/Decals/chest_dec2</li>
+					<li>TEST/Decals/chest_dec3</li>
+				</texPaths>
+			</li>
+		</comps>
+	</VFEPirates.WarcasketDef>
+	
+	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketShoulderPadBase">
+		<defName>TESTShoulders</defName>
+		<label>TEST shoulders</label>
+		<shortDescription>.</shortDescription>
+		<description>.</description>
+		<graphicData>
+			<texPath>TEST/soulders</texPath>
+		</graphicData>
+		<statBases>
+			<Mass>20</Mass>
+			<ArmorRating_Sharp>1.06</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.64</ArmorRating_Heat>
+			<Insulation_Cold>6</Insulation_Cold>
+			<Insulation_Heat>2</Insulation_Heat>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.2</MoveSpeed>
+			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.2</SlaveSuppressionOffset>
+		</equippedStatOffsets>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<researchPrerequisites>
+			<li>VFEP_Warcaskets</li>
+		</researchPrerequisites>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Hands</li>
+				<li>Neck</li>
+			</bodyPartGroups>
+			<wornGraphicPath>TEST/soulders</wornGraphicPath>
+			<layers>
+				<li>OnSkin</li>
+				<li>Middle</li>
+				<li>Shell</li>
+			</layers>
+			<tags>
+				<li>Warcasket</li>
+				<li>WarcasketVeteran</li>
+				<li>WarcasketAll</li>
+			</tags>
+		</apparel>
+		<comps>
+			<li Class="Grimforge.CompProperties_Decals">
+				<texPaths>
+					<li>TEST/Decals/soulders_dec_1</li>
+					<li>TEST/Decals/soulders_icon_1</li>
+					<li>TEST/Decals/soulders_icon_2</li>
+				</texPaths>
+			</li>
+		</comps>
+	</VFEPirates.WarcasketDef>
+	
+	
+</Defs>
