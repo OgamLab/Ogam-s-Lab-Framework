@@ -75,6 +75,8 @@
     <Publicize Include="Assembly-CSharp;VFEPirates" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge.cs" />
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
     <Compile Include="GrimforgeMod.cs" />
