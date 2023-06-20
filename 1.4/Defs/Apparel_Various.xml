@@ -6,6 +6,7 @@
 		<label>TESTwarcasket</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
 		<graphicData>
 			<texPath>TEST/chest</texPath>
 		</graphicData>
@@ -28,6 +29,7 @@
 			<Uranium>20</Uranium>
 		</costList>
 		<apparel>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<bodyPartGroups>
 				<li>Torso</li>
 				<li>Legs</li>
@@ -85,6 +87,7 @@
 		<label>TEST shoulders</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
 		<graphicData>
 			<texPath>TEST/soulders</texPath>
 		</graphicData>
@@ -108,6 +111,7 @@
 			<li>VFEP_Warcaskets</li>
 		</researchPrerequisites>
 		<apparel>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<bodyPartGroups>
 				<li>Shoulders</li>
 				<li>Arms</li>

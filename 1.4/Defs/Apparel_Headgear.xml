@@ -6,6 +6,7 @@
 		<label>TEST helmet</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
 		<graphicData>
 			<texPath>TEST/helmet</texPath>
 		</graphicData>
@@ -31,6 +32,7 @@
 			<li>VFEP_Warcaskets</li>
 		</researchPrerequisites>
 		<apparel>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<bodyPartGroups>
 				<li>FullHead</li>
 			</bodyPartGroups>

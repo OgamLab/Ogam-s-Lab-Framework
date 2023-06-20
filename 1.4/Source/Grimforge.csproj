@@ -52,6 +52,10 @@
       <HintPath>..\Assemblies\ThingColor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VFECore">
+      <HintPath>..\..\..\VanillaExpandedFramework\1.4\Assemblies\VFECore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="VFEPirates">
       <HintPath>..\..\..\VanillaFactionsExpanded-Pirates\1.4\Assemblies\VFEPirates.dll</HintPath>
       <Private>False</Private>

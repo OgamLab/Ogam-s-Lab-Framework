@@ -10,23 +10,35 @@ namespace Grimforge
         public static void Postfix(WarcasketProject __instance, Pawn pawn)
         {
             var data = __instance.GetAdditionalWarcasketProjectData();
-            if (!data.shoulderDecals.NullOrEmpty())
+            var shoulder = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.shoulderPadsDef) as Apparel_WarcasketGrimforge;
+            var armor = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.armorDef) as Apparel_WarcasketGrimforge;
+            var helmet = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.helmetDef) as Apparel_WarcasketGrimforge;
+            if (shoulder != null)
             {
-                var shoulder = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.shoulderPadsDef);
-                var comp = shoulder.GetComp<CompDecals>();
-                comp.SetGraphic(data.shoulderDecals);
+                shoulder.colorApparelTwo = data.shoulderColorTwo;
+                if (!data.shoulderDecals.NullOrEmpty())
+                {
+                    var comp = shoulder.GetComp<CompDecals>();
+                    comp.SetGraphic(data.shoulderDecals);
+                }
             }
-            if (!data.armorDecals.NullOrEmpty())
+            if (armor != null)
             {
-                var armor = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.armorDef);
-                var comp = armor.GetComp<CompDecals>();
-                comp.SetGraphic(data.armorDecals);
+                armor.colorApparelTwo = data.armorColorTwo;
+                if (!data.armorDecals.NullOrEmpty())
+                {
+                    var comp = armor.GetComp<CompDecals>();
+                    comp.SetGraphic(data.armorDecals);
+                }
             }
-            if (!data.helmetDecals.NullOrEmpty())
+            if (helmet != null)
             {
-                var helmet = pawn.apparel.WornApparel.FirstOrDefault(x => x.def == __instance.helmetDef);
-                var comp = helmet.GetComp<CompDecals>();
-                comp.SetGraphic(data.helmetDecals);
+                helmet.colorApparelTwo = data.helmetColorTwo;
+                if (!data.helmetDecals.NullOrEmpty())
+                {
+                    var comp = helmet.GetComp<CompDecals>();
+                    comp.SetGraphic(data.helmetDecals);
+                }
             }
         }
     }
