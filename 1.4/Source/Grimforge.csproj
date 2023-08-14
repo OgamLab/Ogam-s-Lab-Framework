@@ -39,6 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HarmonyMod">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\HarmonyMod.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,12 +61,15 @@
       <HintPath>..\Assemblies\ThingColor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
     <Reference Include="VFECore">
-      <HintPath>..\..\..\VanillaExpandedFramework\1.4\Assemblies\VFECore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.4\Assemblies\VFECore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VFEPirates">
-      <HintPath>..\..\..\VanillaFactionsExpanded-Pirates\1.4\Assemblies\VFEPirates.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2723801948\1.4\Assemblies\VFEPirates.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -72,7 +84,8 @@
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <Publicize Include="Assembly-CSharp;VFEPirates" />
+    <Publicize Include="Assembly-CSharp" />
+    <Publicize Include="VFEPirates" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
@@ -80,6 +93,7 @@
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
     <Compile Include="GrimforgeMod.cs" />
+    <Compile Include="Need_Energy.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
