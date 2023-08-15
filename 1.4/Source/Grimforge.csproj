@@ -39,14 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="HarmonyMod">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\HarmonyMod.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,6 +78,7 @@
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <Publicize Include="Assembly-CSharp;VFEPirates" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
@@ -91,7 +86,6 @@
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
     <Compile Include="GrimforgeMod.cs" />
-    <Compile Include="Need_Energy.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
