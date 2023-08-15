@@ -8,6 +8,12 @@ namespace Grimforge
     {
         public Color? colorApparelTwo;
 
+        private float energy;
+
+        private float maxEnergy = 100f;
+        private List<Ability_Passive> abilities_Passives = new List<Ability_Passive>();
+        private List<Ability_Active> abilities_Active = new List<Ability_Active>();
+
         public override Color DrawColor
         {
             set 
