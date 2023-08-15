@@ -19,6 +19,7 @@
 			<Insulation_Heat>7</Insulation_Heat>
 			<EquipDelay>1</EquipDelay>
 		</statBases>
+		<maxEnergyAmount>200</maxEnergyAmount>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.5</MoveSpeed>
 			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.3</SlaveSuppressionOffset>

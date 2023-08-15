@@ -87,6 +87,7 @@
     <Compile Include="Apparel_WarcasketGrimforge.cs" />
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
+    <Compile Include="Gizmo_ArmorEnergyStatus.cs" />
     <Compile Include="GrimforgeMod.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />

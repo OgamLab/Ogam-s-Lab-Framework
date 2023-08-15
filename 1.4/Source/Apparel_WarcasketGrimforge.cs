@@ -63,5 +63,21 @@ namespace Grimforge
 
             energy = dTot > energy ? 0 : energy - dTot;
         }
+
+        public override IEnumerable<Gizmo> GetWornGizmos()
+        {
+            foreach(var gizmo in base.GetWornGizmos())
+            {
+                yield return gizmo;
+            }
+
+            if(Find.Selector.SingleSelectedThing == Wearer && Wearer.IsColonistPlayerControlled)
+            {
+                var gizmo_ArmorEnergyStatus = new Gizmo_ArmorEnergyStatus
+                {
+                    casket = this
+                };
+            }
+        }
     }
 }
