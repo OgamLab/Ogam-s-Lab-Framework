@@ -2,6 +2,8 @@
 using Verse;
 using VFEPirates;
 
+using System.Collections.Generic;
+
 namespace Grimforge
 {
     public class Apparel_WarcasketGrimforge : Apparel_Warcasket

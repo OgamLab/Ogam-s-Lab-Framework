@@ -81,6 +81,8 @@
     <Publicize Include="Assembly-CSharp;VFEPirates" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ability_Active.cs" />
+    <Compile Include="Ability_Passive.cs" />
     <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
     <Compile Include="Apparel_WarcasketGrimforge.cs" />
     <Compile Include="CompDecals.cs" />
