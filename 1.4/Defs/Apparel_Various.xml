@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketArmorBase">
+	<Grimforge.FortyKCasketDef ParentName="VFEP_WarcasketArmorBase">
 		<defName>TESTWarcasket</defName>
 		<label>TESTwarcasket</label>
 		<shortDescription>.</shortDescription>
@@ -81,7 +80,7 @@
 				</texPaths>
 			</li>
 		</comps>
-	</VFEPirates.WarcasketDef>
+	</Grimforge.FortyKCasketDef>
 	
 	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketShoulderPadBase">
 		<defName>TESTShoulders</defName>
