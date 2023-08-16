@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 using VFEPirates;
+using RimWorld.IO;
 
 using System.Collections.Generic;
 
@@ -34,6 +35,9 @@ namespace Grimforge
         {
             base.ExposeData();
             Scribe_Values.Look(ref colorApparelTwo, "colorApparelTwo");
+            Scribe_Values.Look(ref energy, "energy");
+
+
         }
 
         public float MaxEnergy { get { return maxEnergy; } set { maxEnergy = value; } }
@@ -77,9 +81,15 @@ namespace Grimforge
                 {
                     casket = this
                 };
+                yield return gizmo_ArmorEnergyStatus;
             }
+            
+
         }
 
         public FortyKCasketDef def => base.def as FortyKCasketDef;
+
+
+
     }
 }

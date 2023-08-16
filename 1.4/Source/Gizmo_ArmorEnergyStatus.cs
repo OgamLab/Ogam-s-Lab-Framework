@@ -32,6 +32,8 @@ namespace Grimforge
             return 140f;
         }
 
+
+        //Getting an "Object reference not set to an instance of an object" on this function.  This disables 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             //throw new NotImplementedException();
@@ -43,19 +45,24 @@ namespace Grimforge
             rect3.height = rect.height / 2f;
 
             Text.Font = GameFont.Tiny;
-            //TODO: Label text.  In Nanosuit, this is "nanosuit.LabelShortCap"
-            //Widgets.Label(rect3, )
+            //TODO: 1 Label text.  In Nanosuit, this is "nanosuit.LabelShortCap"
+            Widgets.Label(rect3, "TestLabelTODO1");
 
             var rect4 = rect2;
             rect4.yMin = rect2.y + (rect2.height / 2f);
+
             //TODO: Implement
-            var fillPercent = casket.Energy / casket.def.maxEnergyAmount;
+            //var fillPercent = casket.Energy / casket.def.maxEnergyAmount;
+            var fillPercent = 0.5f;
             Widgets.FillableBar(rect4, fillPercent, FullEnergyBarTex, EmptyEnergyBarTex, false);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleCenter;
-            Widgets.Label(rect4, $"{casket.Energy:F0} / {casket.def.maxEnergyAmount}");
+            //Widgets.Label(rect4, $"{casket.Energy:F0} / {casket.def.maxEnergyAmount}");
+            Widgets.Label(rect4, "TestLabelPercentage");
             Text.Anchor = TextAnchor.UpperLeft;
             return new GizmoResult(GizmoState.Clear);
         }
+
+        
     }
 }
