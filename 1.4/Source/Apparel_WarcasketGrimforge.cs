@@ -79,5 +79,7 @@ namespace Grimforge
                 };
             }
         }
+
+        public FortyKCasketDef def => base.def as FortyKCasketDef;
     }
 }
