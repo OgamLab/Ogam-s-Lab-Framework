@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Grimforge
 {
+    //public enum Ability_Enum
+    //{
+    //    Test
+    //}
     public abstract class Ability_Passive
     {
         public string Name { get; set; }

@@ -85,6 +85,9 @@
     <Compile Include="Ability_Passive.cs" />
     <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
     <Compile Include="Apparel_WarcasketGrimforge.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Body.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Helm.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Pads.cs" />
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
     <Compile Include="FortyKCasketDef.cs" />

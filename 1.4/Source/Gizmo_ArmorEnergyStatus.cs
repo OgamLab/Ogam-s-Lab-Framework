@@ -18,7 +18,7 @@ namespace Grimforge
             SolidColorMaterials.NewSolidColorTexture(new Color(0.2f, 0.2f, 0.24f));
         private static readonly Texture2D EmptyEnergyBarTex = SolidColorMaterials.NewSolidColorTexture(Color.clear);
 
-        public Apparel_WarcasketGrimforge casket;
+        public Apparel_WarcasketGrimforge_Body casket;
 
         public Gizmo_ArmorEnergyStatus()
         {

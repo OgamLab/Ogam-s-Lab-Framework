@@ -4,6 +4,7 @@ using VFEPirates;
 using RimWorld.IO;
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Grimforge
 {
@@ -11,11 +12,8 @@ namespace Grimforge
     {
         public Color? colorApparelTwo;
 
-        private float energy;
-
-        private float maxEnergy = 100f;
-        private List<Ability_Passive> abilities_Passives = new List<Ability_Passive>();
-        private List<Ability_Active> abilities_Active = new List<Ability_Active>();
+        public List<Ability_Passive> abilities_Passives = new List<Ability_Passive>();
+        public List<Ability_Active> abilities_Active = new List<Ability_Active>();
 
         public override Color DrawColor
         {
@@ -35,61 +33,24 @@ namespace Grimforge
         {
             base.ExposeData();
             Scribe_Values.Look(ref colorApparelTwo, "colorApparelTwo");
-            Scribe_Values.Look(ref energy, "energy");
-
-
         }
 
-        public float MaxEnergy { get { return maxEnergy; } set { maxEnergy = value; } }
-        public float Energy
+        public bool IsActive(string name)
         {
-            get
+            if(abilities_Passives.Where(x=>x.Name == name && x.Active == true).Count() > 0)
             {
-                if (energy > maxEnergy) { energy = maxEnergy; }
-                return energy;
+                return true;
             }
-            set
-            {
-                energy = value;
-                if (energy < 0) { energy = 0; }
-                else if (energy > maxEnergy) { energy = maxEnergy; }
-            }
+            return false;
         }
-        public override void Tick()
+
+        public void SwitchPassive(string name)
         {
-            base.Tick();
-            //energy -= drainTotal;
-            float dTot = 0;
-            for (int i = 0; i < abilities_Passives.Count; i++)
+            List<Ability_Passive> res = abilities_Passives.Where(x => x.Name == name).ToList();
+            if(res.Count() > 0)
             {
-                if (abilities_Passives[i].Active) { dTot += abilities_Passives[i].Drain; }
+                res[0].Active = !res[0].Active;
             }
-
-            energy = dTot > energy ? 0 : energy - dTot;
         }
-
-        public override IEnumerable<Gizmo> GetWornGizmos()
-        {
-            foreach(var gizmo in base.GetWornGizmos())
-            {
-                yield return gizmo;
-            }
-
-            if(Find.Selector.SingleSelectedThing == Wearer && Wearer.IsColonistPlayerControlled)
-            {
-                var gizmo_ArmorEnergyStatus = new Gizmo_ArmorEnergyStatus
-                {
-                    casket = this
-                };
-                yield return gizmo_ArmorEnergyStatus;
-            }
-            
-
-        }
-
-        public FortyKCasketDef def => base.def as FortyKCasketDef;
-
-
-
     }
 }
