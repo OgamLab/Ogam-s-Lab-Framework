@@ -54,6 +54,7 @@ namespace Grimforge
 
         public void SwitchPassive(string name)
         {
+            Log.Message("SwitchPassive + " + name); 
             List<Ability_Passive> res = abilities_Passives.Where(x => x.Name == name).ToList();
             if(res.Count() > 0)
             {
@@ -63,7 +64,7 @@ namespace Grimforge
 
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
-            Log.Message("GetWornGizmos in base firing");
+            //Log.Message("GetWornGizmos in base firing");
 
             foreach (var gizmo in base.GetWornGizmos())
             {

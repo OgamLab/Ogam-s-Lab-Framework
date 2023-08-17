@@ -47,7 +47,7 @@ namespace Grimforge
 
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
-            Log.Message("GetWornGizmos in Body firing");
+            //Log.Message("GetWornGizmos in Body firing");
             foreach (var gizmo in base.GetWornGizmos())
             {
                 yield return gizmo;
@@ -64,6 +64,7 @@ namespace Grimforge
 
             if (Prefs.DevMode)
             {
+                //Log.Message("ifDevMode within GetWornGizmos firing");
                 yield return new Command_Toggle
                 {
                     defaultLabel = "GF.TestPassiveLabel".Translate(),
@@ -71,8 +72,8 @@ namespace Grimforge
                     //hotkey
                     icon = ContentFinder<Texture2D>.Get("TEST/chest"),
                     //isActive = () => IsActive()
-                    isActive = () => IsActive("Test"),
-                    toggleAction = delegate { SwitchPassive("Test"); }
+                    isActive = () => IsActive("TestPassiveName"),
+                    toggleAction = delegate { SwitchPassive("TestPassiveName"); }
                 };
             }
 
