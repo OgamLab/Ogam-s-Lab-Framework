@@ -26,7 +26,13 @@ namespace Grimforge
         {
             get
             {
-                return colorApparelTwo ??= this.def.colorGenerator.NewRandomizedColor();
+                //return colorApparelTwo ??= this.def.colorGenerator.NewRandomizedColor();
+                //There's a compact way to do this, but something's going wrong
+                if(colorApparelTwo == null)
+                {
+                    colorApparelTwo = this.def.colorGenerator.NewRandomizedColor();
+                }
+                return (Color)colorApparelTwo;
             }
         }
         public override void ExposeData()
@@ -34,6 +40,8 @@ namespace Grimforge
             base.ExposeData();
             Scribe_Values.Look(ref colorApparelTwo, "colorApparelTwo");
         }
+
+        public FortyKCasketDef def => base.def as FortyKCasketDef;
 
         public bool IsActive(string name)
         {
@@ -51,6 +59,39 @@ namespace Grimforge
             {
                 res[0].Active = !res[0].Active;
             }
+        }
+
+        public override IEnumerable<Gizmo> GetWornGizmos()
+        {
+            Log.Message("GetWornGizmos in base firing");
+
+            foreach (var gizmo in base.GetWornGizmos())
+            {
+                yield return gizmo;
+            }
+            //if (Find.Selector.SingleSelectedThing == Wearer && Wearer.IsColonistPlayerControlled)
+            //{
+            //    var gizmo_ArmorEnergyStatus = new Gizmo_ArmorEnergyStatus
+            //    {
+            //        casket = this
+            //    };
+            //    yield return gizmo_ArmorEnergyStatus;
+            //}
+
+            //if (Prefs.DevMode)
+            //{
+            //    yield return new Command_Toggle
+            //    {
+            //        defaultLabel = "GF.TestPassiveLabel".Translate(),
+            //        defaultDesc = "GF.TestPassiveDesc".Translate(),
+            //        //hotkey
+            //        icon = ContentFinder<Texture2D>.Get("TEST/chest"),
+            //        //isActive = () => IsActive()
+            //        isActive = () => IsActive("Test"),
+            //        toggleAction = delegate { SwitchPassive("Test"); }
+            //    };
+            //}
+
         }
     }
 }

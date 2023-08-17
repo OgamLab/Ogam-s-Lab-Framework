@@ -47,6 +47,7 @@ namespace Grimforge
 
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
+            Log.Message("GetWornGizmos in Body firing");
             foreach (var gizmo in base.GetWornGizmos())
             {
                 yield return gizmo;
@@ -83,7 +84,7 @@ namespace Grimforge
             Scribe_Values.Look(ref energy, "energy");
         }
 
-        public FortyKCasketDef def => base.def as FortyKCasketDef;
+        //public FortyKCasketDef def => base.def as FortyKCasketDef;
 
     }
 }

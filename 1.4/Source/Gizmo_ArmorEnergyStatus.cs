@@ -36,6 +36,7 @@ namespace Grimforge
         //Getting an "Object reference not set to an instance of an object" on this function.  
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
+            Log.Message("GizmoOnGUI firing");
             //throw new NotImplementedException();
             var rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
             var rect2 = rect.ContractedBy(6f);
@@ -52,16 +53,7 @@ namespace Grimforge
             var rect4 = rect2;
             rect4.yMin = rect2.y + (rect2.height / 2f);
 
-            //Debug.Log(casket.Energy.ToString());
-            //Verse.Log:Warning
-            Log.Message("Test2");
-            Log.Message(casket.def.maxEnergyAmount.ToString());
-
-            //TODO: Implement
             var fillPercent = casket.Energy / casket.def.maxEnergyAmount;
-            //var fillPercent = 0.5f;
-
-            Log.Message("Test3");
 
             Widgets.FillableBar(rect4, fillPercent, FullEnergyBarTex, EmptyEnergyBarTex, false);
             Text.Font = GameFont.Small;
