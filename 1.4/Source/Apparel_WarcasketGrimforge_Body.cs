@@ -75,7 +75,20 @@ namespace Grimforge
                     isActive = () => IsActive("TestPassiveName"),
                     toggleAction = delegate { SwitchPassive("TestPassiveName"); }
                 };
+
+                yield return new Command_Action
+                {
+                    defaultLabel = "GF.TestActiveLabel".Translate(),
+                    defaultDesc = "GF.TestActiveDesc".Translate(),
+                    //icon
+                    action = () =>
+                }
             }
+
+        }
+
+        public Action TestAction()
+        {
 
         }
 
