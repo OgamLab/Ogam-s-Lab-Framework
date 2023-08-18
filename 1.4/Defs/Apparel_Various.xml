@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketArmorBase">
+	<Grimforge.FortyKCasketDef ParentName="VFEP_WarcasketArmorBase">
 		<defName>TESTWarcasket</defName>
 		<label>TESTwarcasket</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
-		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge_Body</thingClass>
 		<graphicData>
 			<texPath>TEST/chest</texPath>
 		</graphicData>
@@ -19,6 +18,7 @@
 			<Insulation_Heat>7</Insulation_Heat>
 			<EquipDelay>1</EquipDelay>
 		</statBases>
+		<maxEnergyAmount>200</maxEnergyAmount>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.5</MoveSpeed>
 			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.3</SlaveSuppressionOffset>
@@ -80,14 +80,14 @@
 				</texPaths>
 			</li>
 		</comps>
-	</VFEPirates.WarcasketDef>
+	</Grimforge.FortyKCasketDef>
 	
 	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketShoulderPadBase">
 		<defName>TESTShoulders</defName>
 		<label>TEST shoulders</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
-		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge_Pads</thingClass>
 		<graphicData>
 			<texPath>TEST/soulders</texPath>
 		</graphicData>
