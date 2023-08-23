@@ -13,23 +13,23 @@ namespace Grimforge
     public class Apparel_WarcasketGrimforge_Body : Apparel_WarcasketGrimforge
     {
 
-        private float energy;
+        private float energy = 50;
 
-        private float maxEnergy = 100f;
+        //private float maxEnergy = 100f;
         
-        public float MaxEnergy { get { return maxEnergy; } set { maxEnergy = value; } }
+        public float MaxEnergy { get { return def.maxEnergyAmount; } set { def.maxEnergyAmount = value; } }
         public float Energy
         {
             get
             {
-                if (energy > maxEnergy) { energy = maxEnergy; }
+                if (energy > def.maxEnergyAmount) { energy = def.maxEnergyAmount; }
                 return energy;
             }
             set
             {
                 energy = value;
                 if (energy < 0) { energy = 0; }
-                else if (energy > maxEnergy) { energy = maxEnergy; }
+                else if (energy > def.maxEnergyAmount) { energy = def.maxEnergyAmount; }
             }
         }
         public override void Tick()
@@ -75,8 +75,33 @@ namespace Grimforge
                     isActive = () => IsActive("TestPassiveName"),
                     toggleAction = delegate { SwitchPassive("TestPassiveName"); }
                 };
+
+                yield return new Command_Action
+                {
+                    defaultLabel = "GF.TestActiveLabel".Translate(),
+                    defaultDesc = "GF.TestActiveDesc".Translate(),
+                    //icon
+                    action = delegate { TestRemoveEnergyAction(); }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "GF.TestActive2Label".Translate(),
+                    defaultDesc = "GF.TestActive2Desc".Translate(),
+                    //icon
+                    action = delegate { TestAddEnergyAction(); }
+                };
             }
 
+        }
+
+        public void TestRemoveEnergyAction()
+        {
+            energy = energy / 2;
+        }
+
+        public void TestAddEnergyAction()
+        {
+            energy = energy + (def.maxEnergyAmount - energy) / 2;
         }
 
         public override void ExposeData()
@@ -84,7 +109,6 @@ namespace Grimforge
             base.ExposeData();
             Scribe_Values.Look(ref energy, "energy");
         }
-
         //public FortyKCasketDef def => base.def as FortyKCasketDef;
 
     }
