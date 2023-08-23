@@ -13,7 +13,7 @@ namespace Grimforge
     public class Apparel_WarcasketGrimforge_Body : Apparel_WarcasketGrimforge
     {
 
-        private float energy;
+        private float energy = 50;
 
         private float maxEnergy = 100f;
         
@@ -81,15 +81,27 @@ namespace Grimforge
                     defaultLabel = "GF.TestActiveLabel".Translate(),
                     defaultDesc = "GF.TestActiveDesc".Translate(),
                     //icon
-                    action = () =>
-                }
+                    action = delegate { TestRemoveEnergyAction(); }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "GF.TestActive2Label".Translate(),
+                    defaultDesc = "GF.TestActive2Desc".Translate(),
+                    //icon
+                    action = delegate { TestAddEnergyAction(); }
+                };
             }
 
         }
 
-        public Action TestAction()
+        public void TestRemoveEnergyAction()
         {
+            energy = energy / 2;
+        }
 
+        public void TestAddEnergyAction()
+        {
+            energy = energy + (maxEnergy - energy) / 2;
         }
 
         public override void ExposeData()
