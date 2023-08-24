@@ -23,11 +23,11 @@ namespace Grimforge
         /// </summary>
         public static float rechargePercentage = 0.505f;
 
-        public EnergyTrackerComp EnergyTracker
+        public NeedEnergyTrackerComp EnergyTracker
         {
             get
             {
-                return pawn.TryGetComp<EnergyTrackerComp>();
+                return pawn.TryGetComp<NeedEnergyTrackerComp>();
             }
         }
 
@@ -97,7 +97,7 @@ namespace Grimforge
 
 
             float drainModifier = 1f;
-            if (pawn.TryGetComp<EnergyTrackerComp>() is EnergyTrackerComp energyTracker)
+            if (pawn.TryGetComp<NeedEnergyTrackerComp>() is NeedEnergyTrackerComp energyTracker)
             {
                 if (!pawn.IsCaravanMember() && energyTracker.EnergyProperties.canHibernate && pawn.CurJobDef == energyTracker.EnergyProperties.hibernationJob)
                 {

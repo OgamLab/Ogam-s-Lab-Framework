@@ -8,11 +8,11 @@ using Verse;
 
 namespace Grimforge
 {
-    public class CompProperties_EnergyTracker : CompProperties
+    public class CompProperties_NeedEnergyTracker : CompProperties
     {
-        public CompProperties_EnergyTracker()
+        public CompProperties_NeedEnergyTracker()
         {
-            compClass = typeof(EnergyTrackerComp);
+            compClass = typeof(NeedEnergyTrackerComp);
         }
 
 
