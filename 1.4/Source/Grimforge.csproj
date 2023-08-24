@@ -95,6 +95,7 @@
     <Compile Include="GrimforgeMod.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />
+    <Compile Include="PoweredMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WarcasketProjectAdditionalParts.cs" />
     <Compile Include="WarcasketProject_ApplyOn_Patch.cs" />
