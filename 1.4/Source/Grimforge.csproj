@@ -89,13 +89,10 @@
     <Compile Include="Apparel_WarcasketGrimforge_Helm.cs" />
     <Compile Include="Apparel_WarcasketGrimforge_Pads.cs" />
     <Compile Include="CompDecals.cs" />
-    <Compile Include="CompProperties_NeedEnergyTracker.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
-    <Compile Include="NeedEnergyTrackerComp.cs" />
     <Compile Include="FortyKCasketDef.cs" />
     <Compile Include="Gizmo_ArmorEnergyStatus.cs" />
     <Compile Include="GrimforgeMod.cs" />
-    <Compile Include="Need_Energy.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />
     <Compile Include="PoweredMode.cs" />
