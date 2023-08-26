@@ -49,6 +49,22 @@ namespace Grimforge
             }
         }
 
+        public float GetTotalDrain
+        {
+            get
+            {
+                float totalDrain = 0;
+                for(int i = 0; i < AllPassiveAbilities.Count; ++i)
+                {
+                    if (AllPassiveAbilities[i].Active)
+                    {
+                        totalDrain += AllPassiveAbilities[i].Drain;
+                    }
+                }
+                return totalDrain;
+            }
+        }
+
         public List<Ability_Active> AllActiveAbilities
         {
             get
@@ -96,13 +112,14 @@ namespace Grimforge
         {
             base.Tick();
             //energy -= drainTotal;
-            float dTot = 0;
-            for (int i = 0; i < abilities_Passives.Count; i++)
-            {
-                if (abilities_Passives[i].Active) { dTot += abilities_Passives[i].Drain; }
-            }
+            //float dTot = 0;
+            //for (int i = 0; i < abilities_Passives.Count; i++)
+            //{
+            //    if (abilities_Passives[i].Active) { dTot += abilities_Passives[i].Drain; }
+            //}
 
-            energy = dTot > energy ? 0 : energy - dTot;
+            //energy = dTot > energy ? 0 : energy - dTot;
+            energy = GetTotalDrain > energy ? 0 : energy - GetTotalDrain;
         }
 
         public override IEnumerable<Gizmo> GetWornGizmos()

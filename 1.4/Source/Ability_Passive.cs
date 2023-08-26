@@ -44,7 +44,7 @@ namespace Grimforge
         public TestPassive()
         {
             Name = "TestPassiveName";
-            Active = true;
+            Active = false;
             Drain = 1f;
         }
     }
