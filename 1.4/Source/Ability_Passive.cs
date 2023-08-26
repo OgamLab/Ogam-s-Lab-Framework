@@ -45,7 +45,7 @@ namespace Grimforge
         {
             Name = "TestPassiveName";
             Active = false;
-            Drain = 1f;
+            Drain = 0.1f;
         }
     }
 }

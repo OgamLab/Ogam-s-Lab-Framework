@@ -122,6 +122,12 @@ namespace Grimforge
             energy = GetTotalDrain > energy ? 0 : energy - GetTotalDrain;
         }
 
+        public override void TickLong()
+        {
+            base.TickLong();
+            //NOTE: I suspect this is where the actual energy drain will occur.  
+        }
+
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
             //Log.Message("GetWornGizmos in Body firing");
