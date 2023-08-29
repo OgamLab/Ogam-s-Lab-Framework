@@ -47,13 +47,14 @@ namespace Grimforge
         //public Texture2D Texture { get; set; }
         public Action toggle_Action { get; set; }
 
-        public void Flip()
+        public virtual void Flip()
         {
             Active = !Active;
         }
-        public void Set(bool state)
+        public virtual void Set(bool state)
         {
             Active = state;
+
         }
 
         public Ability_Passive(Pawn wearer)
@@ -73,6 +74,19 @@ namespace Grimforge
             
             //pawn.GetStatValue()
             //StatDef.
+        }
+
+
+
+        public override void Set(bool state)
+        {
+            Active = state;
+            if (Active)
+            {
+                Hediff hediff = HediffMaker.MakeHediff( , pawn);
+                hediff.Severity = 0.5f;
+                pawn.health.AddHediff(hediff );
+            }
         }
     }
 }
