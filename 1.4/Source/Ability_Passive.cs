@@ -36,8 +36,7 @@ namespace Grimforge
     /// </summary>
     public abstract class Ability_Passive
     {
-        //public Pawn pawn;
-        public Apparel_WarcasketGrimforge_Body attachedCasketBody;
+        public Pawn pawn;
         public string Name { get; set; }
         public bool Active { get; set; }
         public float Drain { get; set; }
@@ -57,21 +56,16 @@ namespace Grimforge
             Active = state;
         }
 
-        //public Ability_Passive(Pawn wearer)
-        //{
-        //    pawn = wearer;
-        //}
-        public Ability_Passive(Apparel_WarcasketGrimforge_Body _attachedCasketBody)
+        public Ability_Passive(Pawn wearer)
         {
-            attachedCasketBody = _attachedCasketBody;
+            pawn = wearer;
         }
 
     }
 
     public class TestPassive : Ability_Passive
     {
-        //public TestPassive(Pawn wearer) : base(wearer)
-        public TestPassive(Apparel_WarcasketGrimforge_Body _attachedCasketBody) : base(_attachedCasketBody)
+        public TestPassive(Pawn wearer) : base(wearer)
         {
             Name = "TestPassiveName";
             Active = false;
