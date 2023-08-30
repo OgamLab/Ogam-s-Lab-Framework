@@ -83,9 +83,22 @@ namespace Grimforge
             Active = state;
             if (Active)
             {
+                //Log.Message("Ping Hediff Creation");
                 Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GF_TEST, pawn);
                 hediff.Severity = 0.5f;
-                pawn.health.AddHediff(hediff );
+                pawn.health.AddHediff(hediff);
+            }
+        }
+        public override void Flip()
+        {
+            base.Flip();
+            if (Active)
+            {
+                //Log.Message("Ping Hediff Creation");
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                hediff.Severity = 0.5f;
+                pawn.health.AddHediff(hediff);
+                Log.Message("Ping Hediff Flip");
             }
         }
     }
