@@ -22,7 +22,7 @@ namespace Grimforge
         {
             get
             {
-                if(abilities_Passives.Count == 0) { abilities_Passives.Add(new TestPassive()); }
+                if(abilities_Passives.Count == 0) { abilities_Passives.Add(new TestPassive(Wearer)); }
                 List<Ability_Passive> list = new List<Ability_Passive>(abilities_Passives);
                 if (helm != null && helm is Apparel_WarcasketGrimforge_Helm)
                 {

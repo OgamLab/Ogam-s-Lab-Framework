@@ -83,7 +83,7 @@ namespace Grimforge
             Active = state;
             if (Active)
             {
-                Hediff hediff = HediffMaker.MakeHediff( , pawn);
+                Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GF_TEST, pawn);
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff );
             }

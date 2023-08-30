@@ -21,8 +21,9 @@ namespace Grimforge
         public float moveSpeedBonus;// = 0.5f;
         public float selfHealFactor;
 
-        public PoweredMode()
+        public PoweredMode(Pawn pawn) : base(pawn)
         {
+
             Name = "PoweredMode".Translate();
             Label = "PoweredMode".Translate();
             Description = "PoweredModeDesc".Translate();
