@@ -70,7 +70,7 @@ namespace Grimforge
         {
             Name = "TestPassiveName";
             Active = false;
-            Drain = 0.1f;
+            Drain = 0.01f;
             
             //pawn.GetStatValue()
             //StatDef.
