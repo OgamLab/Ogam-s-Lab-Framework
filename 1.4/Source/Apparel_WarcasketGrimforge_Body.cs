@@ -22,7 +22,7 @@ namespace Grimforge
         {
             get
             {
-                if(abilities_Passives.Count == 0) { abilities_Passives.Add(new TestPassive()); }
+                if(abilities_Passives.Count == 0) { abilities_Passives.Add(new TestPassive(Wearer)); }
                 List<Ability_Passive> list = new List<Ability_Passive>(abilities_Passives);
                 if (helm != null && helm is Apparel_WarcasketGrimforge_Helm)
                 {
@@ -111,15 +111,19 @@ namespace Grimforge
         public override void Tick()
         {
             base.Tick();
-            //energy -= drainTotal;
-            //float dTot = 0;
-            //for (int i = 0; i < abilities_Passives.Count; i++)
-            //{
-            //    if (abilities_Passives[i].Active) { dTot += abilities_Passives[i].Drain; }
-            //}
-
-            //energy = dTot > energy ? 0 : energy - dTot;
             energy = GetTotalDrain > energy ? 0 : energy - GetTotalDrain;
+            if(energy == 0)
+            {
+                TurnOffAllPassives();
+            }
+        }
+
+        public void TurnOffAllPassives()
+        {
+            for(int i = 0; i < AllPassiveAbilities.Count; ++i)
+            {
+                AllPassiveAbilities[i].Set(false);
+            }
         }
 
         public override void TickLong()

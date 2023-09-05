@@ -70,7 +70,7 @@ namespace Grimforge
         {
             Name = "TestPassiveName";
             Active = false;
-            Drain = 0.1f;
+            Drain = 0.01f;
             
             //pawn.GetStatValue()
             //StatDef.
@@ -83,11 +83,28 @@ namespace Grimforge
             Active = state;
             if (Active)
             {
+<<<<<<< HEAD
 
                 //var cloakHediff = Wearer.health.hediffSet.GetFirstHediffOfDef(NS_DefOf.NS_CloakMode);
                 Hediff hediff = HediffMaker.MakeHediff( , pawn);
+=======
+                //Log.Message("Ping Hediff Creation");
+                Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GF_TEST, pawn);
+>>>>>>> 1e2e6dd62a6b1fd757d5d97c668915a06e3a2ab7
                 hediff.Severity = 0.5f;
-                pawn.health.AddHediff(hediff );
+                pawn.health.AddHediff(hediff);
+            }
+        }
+        public override void Flip()
+        {
+            base.Flip();
+            if (Active)
+            {
+                //Log.Message("Ping Hediff Creation");
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                hediff.Severity = 0.5f;
+                pawn.health.AddHediff(hediff);
+                Log.Message("Ping Hediff Flip");
             }
         }
     }
