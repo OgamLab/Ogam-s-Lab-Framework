@@ -83,14 +83,7 @@ namespace Grimforge
             Active = state;
             if (Active)
             {
-<<<<<<< HEAD
-
-                //var cloakHediff = Wearer.health.hediffSet.GetFirstHediffOfDef(NS_DefOf.NS_CloakMode);
-                Hediff hediff = HediffMaker.MakeHediff( , pawn);
-=======
-                //Log.Message("Ping Hediff Creation");
                 Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GF_TEST, pawn);
->>>>>>> 1e2e6dd62a6b1fd757d5d97c668915a06e3a2ab7
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff);
             }
