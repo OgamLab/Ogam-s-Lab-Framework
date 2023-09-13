@@ -43,16 +43,17 @@ namespace Grimforge
 
         public FortyKCasketDef def => base.def as FortyKCasketDef;
 
-        public bool IsActive(string name)
+        public virtual bool IsActive(string name)
         {
             if(abilities_Passives.Where(x=>x.Name == name && x.Active == true).Count() > 0)
             {
                 return true;
             }
+            
             return false;
         }
 
-        public void SwitchPassive(string name)
+        public virtual void SwitchPassive(string name)
         {
             Log.Message("SwitchPassive + " + name); 
             List<Ability_Passive> res = abilities_Passives.Where(x => x.Name == name).ToList();
