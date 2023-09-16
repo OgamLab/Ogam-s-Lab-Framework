@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,12 +55,15 @@
       <HintPath>..\Assemblies\ThingColor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
     <Reference Include="VFECore">
-      <HintPath>..\..\..\VanillaExpandedFramework\1.4\Assemblies\VFECore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.4\Assemblies\VFECore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VFEPirates">
-      <HintPath>..\..\..\VanillaFactionsExpanded-Pirates\1.4\Assemblies\VFEPirates.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2723801948\1.4\Assemblies\VFEPirates.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -75,13 +81,22 @@
     <Publicize Include="Assembly-CSharp;VFEPirates" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ability_Active.cs" />
+    <Compile Include="Ability_Passive.cs" />
     <Compile Include="ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch.cs" />
     <Compile Include="Apparel_WarcasketGrimforge.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Body.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Helm.cs" />
+    <Compile Include="Apparel_WarcasketGrimforge_Pads.cs" />
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
+    <Compile Include="FortyKCasketDef.cs" />
+    <Compile Include="Gizmo_ArmorEnergyStatus.cs" />
     <Compile Include="GrimforgeMod.cs" />
+    <Compile Include="HediffDefOf.cs" />
     <Compile Include="PawnGraphicSet_ResolveApparelGraphics_Patch.cs" />
     <Compile Include="PawnRenderer_DrawBodyApparel_Patch.cs" />
+    <Compile Include="PoweredMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WarcasketProjectAdditionalParts.cs" />
     <Compile Include="WarcasketProject_ApplyOn_Patch.cs" />

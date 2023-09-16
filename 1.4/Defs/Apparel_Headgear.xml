@@ -6,7 +6,7 @@
 		<label>TEST helmet</label>
 		<shortDescription>.</shortDescription>
 		<description>.</description>
-		<thingClass>Grimforge.Apparel_WarcasketGrimforge</thingClass>
+		<thingClass>Grimforge.Apparel_WarcasketGrimforge_Helm</thingClass>
 		<graphicData>
 			<texPath>TEST/helmet</texPath>
 		</graphicData>
