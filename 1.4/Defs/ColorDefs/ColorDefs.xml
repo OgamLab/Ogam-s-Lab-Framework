@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_ImperialGold</defName>
+	  <label>imperial gold</label>
+	  <color>(255,202,68)</color>
+	  <displayOrder>650</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_RegalGold</defName>
+	  <label>regal gold</label>
+	  <color>(221,161,47)</color>
+	  <displayOrder>651</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_AstralSteel</defName>
+	  <label>astral steel</label>
+	  <color>(100,100,100)</color>
+	  <displayOrder>652</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_SableSteel</defName>
+	  <label>sable steel</label>
+	  <color>(48,48,48)</color>
+	  <displayOrder>653</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_VoidBlack</defName>
+	  <label>void black</label>
+	  <color>(0,0,0)</color>
+	  <displayOrder>654</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_CadianOlive</defName>
+	  <label>cadian olive</label>
+	  <color>(107,122,92)</color>
+	  <displayOrder>655</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_CadianDrab</defName>
+	  <label>cadian drab</label>
+	  <color>(73,103,64)</color>
+	  <displayOrder>656</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_KriegSlate</defName>
+	  <label>krieg slate</label>
+	  <color>(95,102,112)</color>
+	  <displayOrder>657</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_KriegIron</defName>
+	  <label>krieg iron</label>
+	  <color>(90,97,115)</color>
+	  <displayOrder>658</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_UltramarineBlue</defName>
+	  <label>ultramarine blue</label>
+	  <color>(68,126,210)</color>
+	  <displayOrder>659</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_EmperorsCrimson</defName>
+	  <label>emperor's crimson</label>
+	  <color>(178,64,127)</color>
+	  <displayOrder>660</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_WhiteScourge</defName>
+	  <label>white scourge</label>
+	  <color>(235,244,243)</color>
+	  <displayOrder>661</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_NightfallBlue</defName>
+	  <label>nightfall blue</label>
+	  <color>(53,79,131)</color>
+	  <displayOrder>662</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_BloodfireRed</defName>
+	  <label>bloodfire red</label>
+	  <color>(198,51,46)</color>
+	  <displayOrder>663</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_ImperialSun</defName>
+	  <label>imperial sun</label>
+	  <color>(240,210,2)</color>
+	  <displayOrder>664</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_SalamanderGreen</defName>
+	  <label>salamander green</label>
+	  <color>(0,118,23)</color>
+	  <displayOrder>665</displayOrder>
+	</ColorDef>
+
+	<ColorDef  ParentName="StructureColorBase">
+	  <defName>GF40K_AlphaSerpent</defName>
+	  <label>alpha serpent</label>
+	  <color>(42,141,152)</color>
+	  <displayOrder>666</displayOrder>
+	</ColorDef>
+
+</Defs>
