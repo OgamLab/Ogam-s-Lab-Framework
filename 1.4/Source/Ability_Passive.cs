@@ -87,6 +87,11 @@ namespace Grimforge
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff);
             }
+            else
+            {
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                pawn.health.RemoveHediff(hediff);
+            }
         }
         public override void Flip()
         {
@@ -98,6 +103,11 @@ namespace Grimforge
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff);
                 Log.Message("Ping Hediff Flip");
+            }
+            else
+            {
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                pawn.health.RemoveHediff(hediff);
             }
         }
     }

@@ -112,7 +112,7 @@ namespace Grimforge
         {
             base.Tick();
             energy = GetTotalDrain > energy ? 0 : energy - GetTotalDrain;
-            if(energy == 0)
+            if(energy <= 0)
             {
                 TurnOffAllPassives();
             }
