@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Mechanical Humanlikes used as example -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>GW_AA_ArmorChargingStation</defName>
+		<altitudeLayer>Building</altitudeLayer>
+		<thingClass>Grimforge.Building_ArmorChargingStation</thingClass>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.40</fillPercent>
+		<tickerType>Rare</tickerType>
+		<rotatable>false</rotatable>
+		<comps>
+		
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<!-- Considering moving to Misc -->
+		<designationCategory>Furniture</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<canOverlapZones>false</canOverlapZones>
+		
+		
+		<label>Armor Charging Station</label>
+		<description>A charging station for Adeptus Astartes Power Armor</description>
+		<graphicData>
+		
+		</graphicData>
+		<uiIconPath></uiIconPath>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<statBases>
+			<Mass>10</Mass>
+			<MaxHitPoints>100</MaxHitPoints>
+<!-- Placeholder for testing, 2500 would be good -->
+			<WorkToBuild>10</WorkToBuild>
+			<Flammability>0.5</Flammability>
+			<BedRestEffectiveness>1</BedRestEffectiveness> <!-- MH's note: This is normally only used for beds, but we use it here to be able to use xml to define charging rate -->
+            <Beauty>-2</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<selectable>true</selectable>
+		<drawPlaceWorkersWhileSelected>false</drawPlaceWorkersWhileSelected>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+            <allowAutoroof>false</allowAutoroof>
+        </building>
+        <costList>
+            <Steel>10</Steel>
+<!-- Another Placeholder -->
+        </costList>
+		<hasInteractionCell>false</hasInteractionCell>
+		<!--researchPrerequisites -->
+		
+
+	</ThingDef>
+</Defs>
