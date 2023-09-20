@@ -37,6 +37,7 @@ namespace Grimforge
             this.graphic = null;
             (this.parent.ParentHolder as Pawn_ApparelTracker).Notify_ApparelChanged();
         }
+
         public override void PostExposeData()
         {
             base.PostExposeData();

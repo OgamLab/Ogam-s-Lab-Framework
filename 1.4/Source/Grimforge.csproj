@@ -90,6 +90,7 @@
     <Compile Include="Apparel_WarcasketGrimforge_Pads.cs" />
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
+    <Compile Include="Dialog_WarcasketCustomization_DoWindowContents_Patch.cs" />
     <Compile Include="FortyKCasketDef.cs" />
     <Compile Include="Gizmo_ArmorEnergyStatus.cs" />
     <Compile Include="GrimforgeMod.cs" />
