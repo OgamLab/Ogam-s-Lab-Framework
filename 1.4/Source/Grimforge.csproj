@@ -92,6 +92,7 @@
     <Compile Include="CompDecals.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
     <Compile Include="FortyKCasketDef.cs" />
+    <Compile Include="GF_JobDefOf.cs" />
     <Compile Include="Gizmo_ArmorEnergyStatus.cs" />
     <Compile Include="GrimforgeMod.cs" />
     <Compile Include="HediffDefOf.cs" />
