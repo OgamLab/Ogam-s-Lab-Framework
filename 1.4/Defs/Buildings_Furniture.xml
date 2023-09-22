@@ -13,7 +13,10 @@
 		<tickerType>Rare</tickerType>
 		<rotatable>false</rotatable>
 		<comps>
-		
+			<li Class="CompProperties_Flickable"/>
+			<li>
+				<compClass>Grimforge.CompGFAACharger</compClass>
+			</li>		
 		</comps>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<!-- Considering moving to Misc -->
@@ -25,9 +28,12 @@
 		<label>Armor Charging Station</label>
 		<description>A charging station for Adeptus Astartes Power Armor</description>
 		<graphicData>
-		
+			<texPath>TEST/helmet_south</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1,2)</drawSize>
 		</graphicData>
-		<uiIconPath></uiIconPath>
+		<uiIconPath>TEST/helmet_south</uiIconPath>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<thingCategories>
 			<li>BuildingsMisc</li>

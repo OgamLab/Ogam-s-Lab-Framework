@@ -16,7 +16,7 @@ namespace Grimforge
             DefOfHelper.EnsureInitializedInCtor(typeof(GF_JobDefOf));
         }
 
-        public static JobDef GF_GetRecharge;
+        public static JobDef GFAA_GetRecharge;
 
 
 

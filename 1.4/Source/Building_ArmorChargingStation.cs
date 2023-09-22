@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -68,7 +67,7 @@ namespace Grimforge
             {
                 yield return new FloatMenuOption("GFAA_ForceCharge".Translate(), delegate ()
                 {
-                    Job job = new Job(GF_JobDefOf.GF_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
+                    Job job = new Job(GF_JobDefOf.GFAA_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
                     pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
                 });
             }
@@ -76,48 +75,48 @@ namespace Grimforge
 
         // If multiple pawns are selected, correctly identify pawns that can be told to charge and allow those pawns to do so as a group.
         // GF code will need to do this eventually, but I'm focusing on basic functionality first.  
-        //public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
-        //{
-        //    base.GetMultiSelectFloatMenuOptions(selPawns);
-        //    List<Pawn> pawnsCanReach = new List<Pawn>();
-        //    FloatMenuOption failureReason = null;
+        public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
+        {
+            base.GetMultiSelectFloatMenuOptions(selPawns);
+            List<Pawn> pawnsCanReach = new List<Pawn>();
+            FloatMenuOption failureReason = null;
 
-        //    // Generate a list of pawns that can use the station.
-        //    foreach (Pawn pawn in selPawns)
-        //    {
-        //        failureReason = CheckIfNotAllowed(pawn);
-        //        if (failureReason == null)
-        //        {
-        //            pawnsCanReach.Add(pawn);
-        //        }
-        //    }
+            // Generate a list of pawns that can use the station.
+            foreach (Pawn pawn in selPawns)
+            {
+                failureReason = CheckIfNotAllowed(pawn);
+                if (failureReason == null)
+                {
+                    pawnsCanReach.Add(pawn);
+                }
+            }
 
-        //    // If there are no pawns that can reach, give a reason why. Note: It will only display the last failure reason detected.
-        //    if (pawnsCanReach.NullOrEmpty())
-        //    {
-        //        if (failureReason != null)
-        //            yield return failureReason;
-        //        else
-        //            yield break;
-        //    }
-        //    else
-        //    {
-        //        yield return new FloatMenuOption("MHC_ForceCharge".Translate(), delegate ()
-        //        {
-        //            // Attempt to assign all pawns that can reach to the station a spot. If a pawn takes the last slot, then abort the process. Left-over pawns won't charge.
-        //            foreach (Pawn pawn in pawnsCanReach)
-        //            {
-        //                IntVec3 chargingSpot = GetOpenRechargeSpot(pawn);
+            // If there are no pawns that can reach, give a reason why. Note: It will only display the last failure reason detected.
+            if (pawnsCanReach.NullOrEmpty())
+            {
+                if (failureReason != null)
+                    yield return failureReason;
+                else
+                    yield break;
+            }
+            else
+            {
+                yield return new FloatMenuOption("MHC_ForceCharge".Translate(), delegate ()
+                {
+                    // Attempt to assign all pawns that can reach to the station a spot. If a pawn takes the last slot, then abort the process. Left-over pawns won't charge.
+                    foreach (Pawn pawn in pawnsCanReach)
+                    {
+                        IntVec3 chargingSpot = GetOpenRechargeSpot(pawn);
 
-        //                if (chargingSpot == IntVec3.Invalid)
-        //                    break;
+                        if (chargingSpot == IntVec3.Invalid)
+                            break;
 
-        //                Job job = new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(chargingSpot), new LocalTargetInfo(this));
-        //                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-        //            }
-        //        });
-        //    }
-        //}
+                        Job job = new Job(GF_JobDefOf.GFAA_GetRecharge, new LocalTargetInfo(chargingSpot), new LocalTargetInfo(this));
+                        pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                    }
+                });
+            }
+        }
 
 
         // Return the first available spot on this station. Return IntVec3.Invalid if there is none.
