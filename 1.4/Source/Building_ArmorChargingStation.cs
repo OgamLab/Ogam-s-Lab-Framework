@@ -45,7 +45,11 @@ namespace Grimforge
             }
 
             // Check if the pawn is actually wearing GF Power Armor
-
+            Apparel_WarcasketGrimforge sample = new Apparel_WarcasketGrimforge();
+            if(!sample.GetType().IsAssignableFrom(pawn.apparel.GetType()))
+            {
+                return new FloatMenuOption("GFAA_NotWearingGFAAArmor".Translate(), null);
+            }
 
 
             // All checks passed, this pawn may be forced to charge. Return null.
@@ -62,10 +66,11 @@ namespace Grimforge
             }
             else
             {
-                //yield return new FloatMenuOption("MHC_ForceCharge".Translate(), delegate () {
-                //    Job job = new Job(MHC_JobDefOf.MHC_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
-                //    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                //});
+                yield return new FloatMenuOption("GFAA_ForceCharge".Translate(), delegate ()
+                {
+                    Job job = new Job(GF_JobDefOf.GF_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
+                    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                });
             }
         }
 
