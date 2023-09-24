@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!-- Mechanical Humanlikes used as example -->
-	<ThingDef ParentName="BuildingBase">
-		<defName>GW_AA_ArmorChargingStation</defName>
+	<ThingDef Name="GFAA_ChargingStationBase" ParentName="BuildingBase" Abstract="True">
+	
+	</ThingDef>
+	
+	<ThingDef ParentName="GFAA_ChargingStationBase">
+		<defName>GFAA_ArmorChargingStation</defName>
 		<altitudeLayer>Building</altitudeLayer>
 		<thingClass>Grimforge.Building_ArmorChargingStation</thingClass>
 		<passability>PassThroughOnly</passability>
@@ -13,10 +17,15 @@
 		<tickerType>Rare</tickerType>
 		<rotatable>false</rotatable>
 		<comps>
-			<li Class="CompProperties_Flickable"/>
 			<li>
 				<compClass>Grimforge.CompGFAACharger</compClass>
-			</li>		
+			</li>	
+			<li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>20</basePowerConsumption>
+                <shortCircuitInRain>true</shortCircuitInRain>
+            </li>			
+			<li Class="CompProperties_Flickable"/>
 		</comps>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<!-- Considering moving to Misc -->
@@ -50,7 +59,6 @@
 		<size>(1,1)</size>
 		<selectable>true</selectable>
 		<drawPlaceWorkersWhileSelected>false</drawPlaceWorkersWhileSelected>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<building>
             <allowAutoroof>false</allowAutoroof>
         </building>
