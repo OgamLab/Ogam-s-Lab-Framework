@@ -44,7 +44,7 @@ namespace Grimforge
             }
 
             // Check if the pawn is actually wearing GF Power Armor
-            Apparel_WarcasketGrimforge sample = new Apparel_WarcasketGrimforge();
+            //Apparel_WarcasketGrimforge sample = new Apparel_WarcasketGrimforge();
             //if(!sample.GetType().IsAssignableFrom(pawn.apparel.GetType()))
             //Log.Message("First apparel: " + pawn.apparel.GetType().ToString());
             //List<Apparel> la = pawn.apparel.WornApparel;
@@ -75,11 +75,11 @@ namespace Grimforge
             {
                 yield return new FloatMenuOption("GFAA_ForceCharge".Translate(), delegate ()
                 {
-                    Log.Message("ping1");
+                    //Log.Message("ping1");
                     Job job = new Job(GF_JobDefOf.GFAA_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
-                    Log.Message("ping2");
+                    //Log.Message("ping2");
                     pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                    Log.Message("ping3");
+                    //Log.Message("ping3");
                 });
             }
         }

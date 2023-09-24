@@ -128,10 +128,11 @@ namespace Grimforge
                 if (!curDriver.asleep && canSleep)
                 {
                     // Pawn falls asleep if their rest need or food need is low enough.
-                    if ((restNeed != null && RestUtility.CanFallAsleep(actor)) || (foodNeed != null && foodNeed.CurLevelPercentage < 0.9f))
-                    {
-                        curDriver.asleep = true;
-                    }
+                    //if ((restNeed != null && RestUtility.CanFallAsleep(actor)) || (foodNeed != null && foodNeed.CurLevelPercentage < 0.9f))
+                    //{
+                    //    curDriver.asleep = true;
+                    //}
+                    curDriver.asleep = true;
                 }
 
                 // If the power source is offline for some reason, then abort the job. Downed pawns do not have a choice of exiting the job in this way.
@@ -143,20 +144,53 @@ namespace Grimforge
                 }
 
                 // if the pawn has their charge/rest need met (both if both exist, otherwise which ever one they have), then the job can be complete.
-                if (!actor.Downed && (foodNeed == null || foodNeed.CurLevelPercentage >= 1.0f || powerSource?.PowerOn != true) && (bed == null || restNeed == null || restNeed.CurLevelPercentage >= 1.0f))
+                //if (!actor.Downed && (foodNeed == null || foodNeed.CurLevelPercentage >= 1.0f || powerSource?.PowerOn != true) && (bed == null || restNeed == null || restNeed.CurLevelPercentage >= 1.0f))
+                //{
+                //    // If the job is complete by measures of needs, terminate the job if they are uninjured and not doing this toil as part of a non-charging job.
+                //    if (!HealthAIUtility.ShouldSeekMedicalRest(actor) && lookForOtherJobs)
+                //    {
+                //        actor.jobs.EndCurrentJob(JobCondition.Succeeded, true);
+                //        return;
+                //    }
+                //    // If the pawn is injured but ready for other tasks (and isn't forced to do this one), then check if there is another preferred job.
+                //    else if (!actor.jobs.curJob.restUntilHealed && lookForOtherJobs && actor.IsHashIntervalTick(211))
+                //    {
+                //        actor.jobs.CheckForJobOverride();
+                //    }
+                //}
+
+
+                //TODO: Condition for ending the job goes here
+                //Apparel_WarcasketGrimforge_Body body
+                List<Apparel> apparels = actor.apparel.WornApparel;
+                Apparel_WarcasketGrimforge_Body body = new Apparel_WarcasketGrimforge_Body();
+                Apparel_WarcasketGrimforge_Helm helm = new Apparel_WarcasketGrimforge_Helm();
+                Apparel_WarcasketGrimforge_Pads pads = new Apparel_WarcasketGrimforge_Pads();
+                //if (!typeof(Apparel_WarcasketGrimforge).IsAssignableFrom(pawn.apparel.WornApparel[0].GetType()))
+                for(int i = 0; i < apparels.Count; i++)
                 {
-                    // If the job is complete by measures of needs, terminate the job if they are uninjured and not doing this toil as part of a non-charging job.
-                    if (!HealthAIUtility.ShouldSeekMedicalRest(actor) && lookForOtherJobs)
+                    if (typeof(Apparel_WarcasketGrimforge_Body).IsAssignableFrom(apparels[i].GetType()))
                     {
-                        actor.jobs.EndCurrentJob(JobCondition.Succeeded, true);
-                        return;
+                        body = (Apparel_WarcasketGrimforge_Body)apparels[i];
+                        
                     }
-                    // If the pawn is injured but ready for other tasks (and isn't forced to do this one), then check if there is another preferred job.
-                    else if (!actor.jobs.curJob.restUntilHealed && lookForOtherJobs && actor.IsHashIntervalTick(211))
+                    else if (typeof(Apparel_WarcasketGrimforge_Helm).IsAssignableFrom(apparels[i].GetType()))
                     {
-                        actor.jobs.CheckForJobOverride();
+                        helm = (Apparel_WarcasketGrimforge_Helm)apparels[i];
+                    }
+                    else if (typeof(Apparel_WarcasketGrimforge_Pads).IsAssignableFrom(apparels[i].GetType()))
+                    {
+                        pads = (Apparel_WarcasketGrimforge_Pads)apparels[i];
                     }
                 }
+
+                body.Energy += 0.1f;
+                if(body.Energy >= body.MaxEnergy)
+                {
+                    actor.jobs.EndCurrentJob(JobCondition.Succeeded, true);
+                    return;
+                }
+
 
                 // Increment comfort from where the pawn is resting, if applicable.
                 actor.GainComfortFromCellIfPossible();
@@ -204,21 +238,21 @@ namespace Grimforge
                 }
 
                 // Throw the appropriate flecks when appropriate. Charging flecks when charging (energy < rest), ZZZ's when resting (rest < energy), healing when injured and can naturally heal.
-                if (actor.IsHashIntervalTick(TicksBetweenFlecks) && !actor.Position.Fogged(actor.Map))
-                {
-                    if (restNeed != null)
-                    {
-                        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, FleckDefOf.SleepZ);
-                    }
-                    if (foodNeed != null && powerSource?.PowerOn == true)
-                    {
-                        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, GetChargeFleckDef(foodNeed));
-                    }
-                    if (actor.health.hediffSet.GetNaturallyHealingInjuredParts().Any())
-                    {
-                        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, FleckDefOf.HealingCross);
-                    }
-                }
+                //if (actor.IsHashIntervalTick(TicksBetweenFlecks) && !actor.Position.Fogged(actor.Map))
+                //{
+                //    if (restNeed != null)
+                //    {
+                //        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, FleckDefOf.SleepZ);
+                //    }
+                //    if (foodNeed != null && powerSource?.PowerOn == true)
+                //    {
+                //        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, GetChargeFleckDef(foodNeed));
+                //    }
+                //    if (actor.health.hediffSet.GetNaturallyHealingInjuredParts().Any())
+                //    {
+                //        FleckMaker.ThrowMetaIcon(actor.Position, actor.Map, FleckDefOf.HealingCross);
+                //    }
+                //}
 
                 // If the pawn is downed and this is not a valid spot to stay in, then boot them to the closest walkable spot.
                 if (actor.ownership != null && bed != null && !bed.Medical && !bed.OwnersForReading.Contains(actor))
@@ -273,12 +307,12 @@ namespace Grimforge
         }
 
         // Return a particular charge fleck depending on the charge of the food need tracker.
-        private static FleckDef GetChargeFleckDef(Need_Food energyNeed)
-        {
-            if (energyNeed.CurLevelPercentage >= 0.80f) { return fullChargeFleck; }
-            else if (energyNeed.CurLevelPercentage >= 0.40f) { return halfChargeFleck; }
-            return emptyChargeFleck;
-        }
+        //private static FleckDef GetChargeFleckDef(Need_Food energyNeed)
+        //{
+        //    if (energyNeed.CurLevelPercentage >= 0.80f) { return fullChargeFleck; }
+        //    else if (energyNeed.CurLevelPercentage >= 0.40f) { return halfChargeFleck; }
+        //    return emptyChargeFleck;
+        //}
 
         // Apply a sleep thought to pawns once they awaken (if they slept long enough to warrant one). This is functionally identical to Core's function in Toils_LayDown.ApplyBedThoughts.
         private static void ApplyBedThoughts(Pawn actor)
