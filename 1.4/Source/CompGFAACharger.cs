@@ -14,13 +14,18 @@ namespace Grimforge
     {
         protected CompPowerTrader compPowerTrader;
         protected List<Pawn> users;
-        protected float cachedConsumption;
+        protected float cachedConsumption = 0f;
+
+        public CompGFAACharger() : base()
+        {
+            
+        }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             compPowerTrader = parent.GetComp<CompPowerTrader>();
-
+            //CompPowerTrader = this.getco
             if (!respawningAfterLoad)
             {
                 cachedConsumption = compPowerTrader.Props.PowerConsumption;

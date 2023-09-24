@@ -55,6 +55,7 @@ namespace Grimforge
 
                 // The target building itself may have the CompPawnCharger we need.
                 compGFAACharger = targetBuilding.TryGetComp<CompGFAACharger>();
+                //compGFAACharger
 
                 compGFAACharger?.Notify_ConsumerAdded(actor);
 
@@ -176,7 +177,8 @@ namespace Grimforge
                     // Recache this value relatively frequently or calculate it if it is illegal.
                     if (actor.IsHashIntervalTick(120) || chargeRate < 0)
                     {
-                        chargeRate = 0.0001f * actor.GetStatValue(MHC_StatDefOf.MHC_ChargingSpeed, cacheStaleAfterTicks: 120) * MechHumanlikes_Settings.batteryChargeRate;
+                        chargeRate = 0.1f;
+                        //chargeRate = 0.0001f * actor.GetStatValue(MHC_StatDefOf.MHC_ChargingSpeed, cacheStaleAfterTicks: 120) * MechHumanlikes_Settings.batteryChargeRate;
                         if (chargeRate > 0)
                         {
                             // Beds get charging effectiveness from their BedRestEffectiveness stat.
@@ -191,6 +193,7 @@ namespace Grimforge
                         }
                     }
                     foodNeed.CurLevel += chargeRate;
+
                 }
 
                 // If the apply bed thought timer is up, set applyBedThoughtsOnLeave to true so that it will apply when done with the job.
@@ -258,16 +261,13 @@ namespace Grimforge
                 {
                     targetBuilding = actor.CurJob.GetTarget(chargingBuilding).Thing;
                 }
-                if (compPawnCharger == null)
+                if (compGFAACharger == null)
                 {
-                    compPawnCharger = targetBuilding.TryGetComp<CompPawnCharger>();
+                    compGFAACharger = targetBuilding.TryGetComp<CompGFAACharger>();
                     // If it's not a charging bed or a charging station, we need to grab the linkable bedside charger that this bed is attached to.
-                    if (compPawnCharger == null)
-                    {
-                        compPawnCharger = targetBuilding.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading?.Find(thing => thing.TryGetComp<CompPawnCharger>() != null)?.TryGetComp<CompPawnCharger>();
-                    }
+                    
                 }
-                compPawnCharger?.Notify_ConsumerRemoved(actor);
+                compGFAACharger?.Notify_ConsumerRemoved(actor);
             });
             return layDown;
         }

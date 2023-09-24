@@ -31,12 +31,12 @@ namespace Grimforge
             {
                 yield return Toils_Bed.ClaimBedIfNonMedical(TargetIndex.A);
                 yield return Toils_Bed.GotoBed(TargetIndex.A);
-                yield return Toils_LayDownPower.LayDown(TargetIndex.A, true);
+                yield return Toils_LayDownForPower.LayDown(TargetIndex.A, true);
             }
             else
             {
                 yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
-                yield return Toils_LayDownPower.LayDown(TargetIndex.B, false);
+                yield return Toils_LayDownForPower.LayDown(TargetIndex.B, false);
             }
         }
     }

@@ -45,7 +45,15 @@ namespace Grimforge
 
             // Check if the pawn is actually wearing GF Power Armor
             Apparel_WarcasketGrimforge sample = new Apparel_WarcasketGrimforge();
-            if(!sample.GetType().IsAssignableFrom(pawn.apparel.GetType()))
+            //if(!sample.GetType().IsAssignableFrom(pawn.apparel.GetType()))
+            //Log.Message("First apparel: " + pawn.apparel.GetType().ToString());
+            //List<Apparel> la = pawn.apparel.WornApparel;
+            //for(int i = 0; i < la.Count; i++)
+            //{
+            //    Log.Message(i.ToString() + " apparel: " + la[i].GetType().ToString());
+            //}
+            
+            if (!typeof(Apparel_WarcasketGrimforge).IsAssignableFrom(pawn.apparel.WornApparel[0].GetType()))
             {
                 return new FloatMenuOption("GFAA_NotWearingGFAAArmor".Translate(), null);
             }
@@ -101,7 +109,7 @@ namespace Grimforge
             }
             else
             {
-                yield return new FloatMenuOption("MHC_ForceCharge".Translate(), delegate ()
+                yield return new FloatMenuOption("GFAA_ForceCharge".Translate(), delegate ()
                 {
                     // Attempt to assign all pawns that can reach to the station a spot. If a pawn takes the last slot, then abort the process. Left-over pawns won't charge.
                     foreach (Pawn pawn in pawnsCanReach)
