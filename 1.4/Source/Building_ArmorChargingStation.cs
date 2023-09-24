@@ -75,8 +75,11 @@ namespace Grimforge
             {
                 yield return new FloatMenuOption("GFAA_ForceCharge".Translate(), delegate ()
                 {
+                    Log.Message("ping1");
                     Job job = new Job(GF_JobDefOf.GFAA_GetRecharge, new LocalTargetInfo(GetOpenRechargeSpot(pawn)), new LocalTargetInfo(this));
+                    Log.Message("ping2");
                     pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                    Log.Message("ping3");
                 });
             }
         }

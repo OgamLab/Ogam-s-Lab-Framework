@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 using RimWorld;
 using Verse.AI;
+using Verse;
 
 namespace Grimforge
 {
@@ -29,13 +30,15 @@ namespace Grimforge
         {
             if (TargetThingA is Building_Bed)
             {
-                yield return Toils_Bed.ClaimBedIfNonMedical(TargetIndex.A);
-                yield return Toils_Bed.GotoBed(TargetIndex.A);
-                yield return Toils_LayDownForPower.LayDown(TargetIndex.A, true);
+                //yield return Toils_Bed.ClaimBedIfNonMedical(TargetIndex.A);
+                //yield return Toils_Bed.GotoBed(TargetIndex.A);
+                //yield return Toils_LayDownForPower.LayDown(TargetIndex.A, true);
             }
             else
             {
+                //Log.Message("PING1");
                 yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
+                //Log.Message("PING2");
                 yield return Toils_LayDownForPower.LayDown(TargetIndex.B, false);
             }
         }

@@ -3,8 +3,8 @@
 
     <JobDef>
 		<defName>GFAA_GetRecharge</defName>
-		<driverClass>Grimforge.JobDriver_RechargeBattery</driverClass>
-		<reportString>Recharging battery.</reportString>
+		<driverClass>Grimforge.JobDriver_RechargeArmor</driverClass>
+		<reportString>Recharging armor.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 </Defs>
