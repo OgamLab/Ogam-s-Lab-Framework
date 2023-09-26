@@ -6,7 +6,7 @@
 	<hediffClass>Hediff_High</hediffClass>
     <label>power armor assisted</label>
     <labelNoun>a power armor assist</labelNoun>
-    <description>The Astartes Power Armor is assisting movement, strength, and OTHER</description>
+    <description>The Astartes Power Armor is assisting movement, strength, and awareness</description>
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
     <maxSeverity>1.0</maxSeverity>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef>
+	<defName>GFAA_PoweredMode</defName>
+	<hediffClass>Hediff_High</hediffClass>
+    <label>power armor assisted</label>
+    <labelNoun>a power armor assist</labelNoun>
+    <description>The Astartes Power Armor is assisting movement, strength, and awareness</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>	
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.75</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <painFactor>0.1</painFactor>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.20</offset>
+            </li>
+            <li>
+              <capacity>Sight</capacity>
+              <offset>0.35</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.50</offset>
+            </li>
+          </capMods>
+        </li>
+      </stages>
+  </HediffDef>
+  
+  <HediffDef>
+	<defName>GFAA_HealingSpecialist</defName>
+	<hediffClass>Hediff_High</hediffClass>
+    <label>power armor assisted</label>
+    <labelNoun>a power armor assist</labelNoun>
+    <description>The Astartes Power Armor is assisting movement, strength, and awareness</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>	
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.75</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <painFactor>0.3</painFactor>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.35</offset>
+            </li>
+            <li>
+              <capacity>Sight</capacity>
+              <offset>0.35</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>0.25</offset>
+            </li>
+			
+          </capMods>
+        </li>
+      </stages>
+	  
+  </HediffDef>
+</Defs>
