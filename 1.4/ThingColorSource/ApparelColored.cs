@@ -10,40 +10,31 @@ namespace ThingColor
         private Color? colorTwo;
         public Color? ColorTwo
         {
-            get
-            {
-                return colorTwo; 
-            }
-            set
-            { 
-                colorTwo = value;
-            }
+            get => colorTwo; 
+            set => colorTwo = value;
         }
 
         private Color? desiredColorTwo;
         public Color? DesiredColorTwo
         {
-            get { return desiredColorTwo; }
-            set 
-            { 
-                desiredColorTwo = value; 
-            }
+            get => desiredColorTwo;
+            set => desiredColorTwo = value; 
         }
 
         public override Color DrawColor
         {
             get
             {
-                if (this.def.apparel.useWornGraphicMask is false)
+                if (!def.apparel.useWornGraphicMask)
                 {
-                    this.def.apparel.useWornGraphicMask = true;
+                    def.apparel.useWornGraphicMask = true;
                 }
                 CompColorable comp = GetComp<CompColorable>();
                 if (comp != null && comp.Active)
                 {
                     return comp.Color;
                 }
-                var extension = this.def.GetModExtension<ThingExtension>();
+                var extension = def.GetModExtension<ThingExtension>();
                 var color = this.GetColorFor(extension.colorOneStuff);
                 if (color != null)
                 {
@@ -57,15 +48,15 @@ namespace ThingColor
         {
             get
             {
-                if (this.def.apparel.useWornGraphicMask is false)
+                if (!def.apparel.useWornGraphicMask)
                 {
-                    this.def.apparel.useWornGraphicMask = true;
+                    def.apparel.useWornGraphicMask = true;
                 }
                 if (colorTwo.HasValue)
                 {
                     return colorTwo.Value;
                 }
-                var extension = this.def.GetModExtension<ThingExtension>();
+                var extension = def.GetModExtension<ThingExtension>();
                 var color = this.GetColorFor(extension.colorTwoStuff);
                 if (color != null)
                 {

@@ -182,7 +182,7 @@ namespace ThingColor
     [HarmonyPatch(typeof(Dialog_StylingStation), "DrawPawn")]
     public static class Dialog_StylingStation_DrawPawn_Patch
     {
-        public static Dictionary<Apparel, Color?> tmpOriginalColors = new Dictionary<Apparel, Color?>();
+        public static Dictionary<Apparel, Color?> tmpOriginalColors = new();
         public static bool Prefix(Dialog_StylingStation __instance, Rect rect)
         {
             DrawPawn(__instance, rect);
@@ -202,8 +202,7 @@ namespace ThingColor
             tmpOriginalColors.Clear();
             foreach (KeyValuePair<Apparel, Color> item in Dialog_StylingStation_DrawApparelColor_Patch.apparelColorsTwo)
             {
-                ApparelColored key = item.Key as ApparelColored;
-                if (key != null)
+                if (item.Key is ApparelColored key)
                 {
                     tmpOriginalColors.Add(key, key.ColorTwo);
                     key.ColorTwo = item.Value;
@@ -258,7 +257,7 @@ namespace ThingColor
     [HarmonyPatch(typeof(Dialog_StylingStation), "DrawApparelColor")]
     public static class Dialog_StylingStation_DrawApparelColor_Patch
     {
-        public static Dictionary<Apparel, Color> apparelColorsTwo = new Dictionary<Apparel, Color>();
+        public static Dictionary<Apparel, Color> apparelColorsTwo = new();
         public static bool colorTwoMode;
 
         public static bool Prefix(Dialog_StylingStation __instance, Rect rect)
@@ -270,13 +269,13 @@ namespace ThingColor
         private static void DrawApparelColor(Dialog_StylingStation __instance, Rect rect, Dictionary<Apparel, Color> apparelColors)
         {
             bool flag = false;
-            Rect viewRect = new Rect(rect.x, rect.y, rect.width - 16f, __instance.viewRectHeight);
+            Rect viewRect = new(rect.x, rect.y, rect.width - 16f, __instance.viewRectHeight);
             Widgets.BeginScrollView(rect, ref __instance.apparelColorScrollPosition, viewRect);
             int num = 0;
             float curY = rect.y;
             foreach (Apparel item in __instance.pawn.apparel.WornApparel)
             {
-                Rect rect2 = new Rect(rect.x, curY, viewRect.width, 110);
+                Rect rect2 = new(rect.x, curY, viewRect.width, 110);
                 if (apparelColors.TryGetValue(item, out var color) is false)
                 {
                     apparelColors[item] = color = Color.white;
@@ -348,7 +347,7 @@ namespace ThingColor
             }
             if (__instance.pawn.Map.resourceCounter.GetCount(ThingDefOf.Dye) < num)
             {
-                Rect rect4 = new Rect(rect.x, curY, rect.width - 16f - 10f, 60f);
+                Rect rect4 = new(rect.x, curY, rect.width - 16f - 10f, 60f);
                 Color color2 = GUI.color;
                 GUI.color = ColorLibrary.RedReadable;
                 Widgets.Label(rect4, "NotEnoughDye".Translate() + " " + "NotEnoughDyeWillRecolorApparel".Translate());
@@ -372,28 +371,29 @@ namespace ThingColor
 
         public static Color? GetColorFor(this Thing thing, List<StuffCategoryDef> colorStuff)
         {
-            if (colorStuff is null) return null;
-            var stuff = thing.Stuff;
-            if (stuff.stuffProps?.categories != null)
+            if (colorStuff.NullOrEmpty()) return null;
+
+            ThingDef stuff = thing.Stuff;
+
+            if (stuff != null && stuff.stuffProps?.categories != null)
             {
-                foreach (var cat in stuff.stuffProps.categories)
+                foreach (StuffCategoryDef category in stuff.stuffProps.categories)
                 {
-                    if (colorStuff.Contains(cat))
+                    if (colorStuff.Contains(category))
                     {
                         return stuff.stuffProps.color;
                     }
                 }
             }
-
             if (thing.def.CostList != null)
             {
-                foreach (var cost in thing.def.CostList)
+                foreach (ThingDefCountClass cost in thing.def.CostList)
                 {
                     if (cost.thingDef.stuffProps?.categories != null)
                     {
-                        foreach (var cat in cost.thingDef.stuffProps.categories)
+                        foreach (StuffCategoryDef category2 in cost.thingDef.stuffProps.categories)
                         {
-                            if (colorStuff.Contains(cat))
+                            if (colorStuff.Contains(category2))
                             {
                                 return cost.thingDef.stuffProps.color;
                             }
@@ -406,46 +406,31 @@ namespace ThingColor
     }
 
     [HarmonyPatch(typeof(ApparelGraphicRecordGetter), "TryGetGraphicApparel")]
-    public static class ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch
+    public static class TryGetGraphicApparel_UnderHelmet_DrawColorTwo
     {
-        public static bool Prefix(ref bool __result, Apparel apparel, BodyTypeDef bodyType, ref ApparelGraphicRecord rec)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (apparel.DrawColorTwo != Color.white)
-            {
-                __result = TryGetGraphicApparel(apparel, bodyType, ref rec);
-                return false;
-            }
-            return true;
-        }
+            var codes = new List<CodeInstruction>(instructions);
 
-        public static bool TryGetGraphicApparel(Apparel apparel, BodyTypeDef bodyType, ref ApparelGraphicRecord rec)
-        {
-            if (bodyType == null)
+            for (int i = 0; i < codes.Count; i++)
             {
-                Log.Error("Getting apparel graphic with undefined body type.");
-                bodyType = BodyTypeDefOf.Male;
-            }
-            if (apparel.WornGraphicPath.NullOrEmpty())
-            {
-                rec = new ApparelGraphicRecord(null, null);
-                return false;
-            }
-            string path = ((apparel.def.apparel.LastLayer != ApparelLayerDefOf.Overhead && apparel.def.apparel.LastLayer != ApparelLayerDefOf.EyeCover && !PawnRenderer.RenderAsPack(apparel) && !(apparel.WornGraphicPath == BaseContent.PlaceholderImagePath) && !(apparel.WornGraphicPath == BaseContent.PlaceholderGearImagePath)) ? (apparel.WornGraphicPath + "_" + bodyType.defName) : apparel.WornGraphicPath);
-            Shader shader = ShaderDatabase.Cutout;
-            if (apparel is ApparelColored)
-            {
-                if (apparel.def.apparel.useWornGraphicMask is false)
+                yield return codes[i];
+
+                if (codes[i].operand is not null && codes[i].operand.ToString().Contains("DrawColor"))
                 {
-                    apparel.def.apparel.useWornGraphicMask = true;
+                    var injected = new List<CodeInstruction>()
+                    {
+                        new CodeInstruction(OpCodes.Ldarg_0),
+                        new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), "DrawColorTwo")),
+                        new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(GraphicDatabase), "Get", new Type[] { typeof(string), typeof(Shader), typeof(Vector2), typeof(Color), typeof(Color), }, new Type[] { typeof(Graphic_Multi) }))
+                    };
+                    foreach (CodeInstruction c in injected)
+                    {
+                        yield return c;
+                    }
+                    i += 1; // skip the other call
                 }
             }
-            if (apparel.def.apparel.useWornGraphicMask)
-            {
-                shader = ShaderDatabase.CutoutComplex;
-            }
-            Graphic graphic = GraphicDatabase.Get<Graphic_Multi>(path, shader, apparel.def.graphicData.drawSize, apparel.DrawColor, apparel.DrawColorTwo);
-            rec = new ApparelGraphicRecord(graphic, apparel);
-            return true;
         }
     }
 }
