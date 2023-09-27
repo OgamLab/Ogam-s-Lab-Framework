@@ -19,14 +19,11 @@ namespace ThingColor
         {
             if (apparel is ApparelColored coloredApparel)
             {
-                Log.Message("Got colored apparel");
                 var ext = pawn.kindDef.GetModExtension<ModExt_PawnKindApparelColorTwo>();
                 if (ext != null)
                 {
-                    Log.Message("recolored " + apparel.def.defName);
                     coloredApparel.ColorTwo = ext.colorTwo;
                     coloredApparel.DesiredColorTwo = null;
-                    Log.Message("and the color is... " + apparel.DrawColorTwo);
                 }
             }
         }
