@@ -165,15 +165,25 @@ namespace Grimforge
 
                 yield return new Command_Action
                 {
-                    defaultLabel = "GF.TestActiveLabel".Translate(),
-                    defaultDesc = "GF.TestActiveDesc".Translate(),
+                    defaultLabel = "GF.TestActiveHalveLabel".Translate(),
+                    defaultDesc = "GF.TestActiveHalveDesc".Translate(),
                     //icon
-                    action = delegate { TestRemoveEnergyAction(); }
+                    action = delegate { TestHalveEnergyAction(); }
                 };
+                //yield return new Command_Action
+                Command_Action subtract = new Command_Action
+                {
+                    defaultLabel = "GF.TestActiveSubtractLabel".Translate(),
+                    defaultDesc = "GF.TestActiveSubtractDesc".Translate(),
+                    //icon
+                    action = delegate { TestRemoveEnergyAction(); }                    
+                };
+                if(energy < 25) { subtract.disabled = true; }
+                yield return subtract;
                 yield return new Command_Action
                 {
-                    defaultLabel = "GF.TestActive2Label".Translate(),
-                    defaultDesc = "GF.TestActive2Desc".Translate(),
+                    defaultLabel = "GF.TestActiveAddLabel".Translate(),
+                    defaultDesc = "GF.TestActiveAddDesc".Translate(),
                     //icon
                     action = delegate { TestAddEnergyAction(); }
                 };
@@ -217,9 +227,14 @@ namespace Grimforge
             return false;
         }
 
-        public void TestRemoveEnergyAction()
+        public void TestHalveEnergyAction()
         {
             energy = energy / 2;
+        }
+
+        public void TestRemoveEnergyAction()
+        {
+            energy = energy - 25;
         }
 
         public void TestAddEnergyAction()

@@ -47,14 +47,19 @@ namespace Grimforge
         //public Texture2D Texture { get; set; }
         public Action toggle_Action { get; set; }
 
+        public HediffDef HediffUsed { get; set; }
+
         public virtual void Flip()
         {
             Active = !Active;
+            if (Active) { GiveHediff(); }
+            else { TakeHediff(); }
         }
         public virtual void Set(bool state)
         {
             Active = state;
-
+            if (Active) { GiveHediff(); }
+            else { TakeHediff(); }
         }
 
         public Ability_Passive(Pawn wearer)
@@ -62,6 +67,32 @@ namespace Grimforge
             pawn = wearer;
         }
 
+        public virtual void GiveHediff()
+        {
+            Hediff hediff = HediffMaker.MakeHediff(HediffUsed, pawn);
+            hediff.Severity = 0.5f;
+            pawn.health.AddHediff(hediff);
+        }
+        public virtual void TakeHediff()
+        {
+            Hediff hediff = HediffMaker.MakeHediff(HediffUsed, pawn);
+            pawn.health.RemoveHediff(hediff);
+        }
+
+    }
+
+    public class OverdriveAbility : Ability_Passive
+    {
+        public OverdriveAbility(Pawn wearer) : base(wearer)
+        {
+            pawn = wearer;
+            HediffUsed = HediffDefOf.GFAA_Overdrive;
+            Name = "OverdriveAbility";
+            Active = false;
+            Drain = 0.01f;
+
+        }
+        
     }
 
     public class TestPassive : Ability_Passive
@@ -83,13 +114,13 @@ namespace Grimforge
             Active = state;
             if (Active)
             {
-                Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GF_TEST, pawn);
+                Hediff hediff = HediffMaker.MakeHediff( HediffDefOf.GFAA_TEST, pawn);
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff);
             }
             else
             {
-                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GFAA_TEST, pawn);
                 pawn.health.RemoveHediff(hediff);
             }
         }
@@ -99,14 +130,14 @@ namespace Grimforge
             if (Active)
             {
                 //Log.Message("Ping Hediff Creation");
-                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GFAA_TEST, pawn);
                 hediff.Severity = 0.5f;
                 pawn.health.AddHediff(hediff);
                 Log.Message("Ping Hediff Flip");
             }
             else
             {
-                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GF_TEST, pawn);
+                Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.GFAA_TEST, pawn);
                 pawn.health.RemoveHediff(hediff);
             }
         }
