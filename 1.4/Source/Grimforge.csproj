@@ -92,6 +92,7 @@
     <Compile Include="CompDecals.cs" />
     <Compile Include="CompGFAACharger.cs" />
     <Compile Include="Dialog_WarcasketCustomization_DoPartsSelect_Patch.cs" />
+    <Compile Include="Dialog_WarcasketCustomization_DoWindowContents_Patch.cs" />
     <Compile Include="FortyKCasketDef.cs" />
     <Compile Include="GFAA_StatDefOf.cs" />
     <Compile Include="GF_JobDefOf.cs" />
