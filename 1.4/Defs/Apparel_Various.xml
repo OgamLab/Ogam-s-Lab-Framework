@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+<!--
 	<Grimforge.FortyKCasketDef ParentName="VFEP_WarcasketArmorBase">
 		<defName>TESTWarcasket</defName>
 		<label>TESTwarcasket</label>
@@ -140,6 +141,6 @@
 			</li>
 		</comps>
 	</VFEPirates.WarcasketDef>
-	
+	-->
 	
 </Defs>
