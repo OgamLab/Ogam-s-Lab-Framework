@@ -16,29 +16,29 @@ namespace Grimforge
             if (shoulder != null)
             {
                 shoulder.colorApparelTwo = data.shoulderColorTwo;
-                if (!data.shoulderDecals.NullOrEmpty())
-                {
-                    var comp = shoulder.GetComp<CompDecals>();
-                    comp.SetGraphic(data.shoulderDecals);
-                }
+                //if (!data.shoulderDecals.NullOrEmpty())
+                //{
+                //    var comp = shoulder.GetComp<CompDecals>();
+                //    comp.SetGraphic(data.shoulderDecals);
+                //}
             }
             if (armor != null)
             {
                 armor.colorApparelTwo = data.armorColorTwo;
-                if (!data.armorDecals.NullOrEmpty())
-                {
-                    var comp = armor.GetComp<CompDecals>();
-                    comp.SetGraphic(data.armorDecals);
-                }
+                //if (!data.armorDecals.NullOrEmpty())
+                //{
+                //    var comp = armor.GetComp<CompDecals>();
+                //    comp.SetGraphic(data.armorDecals);
+                //}
             }
             if (helmet != null)
             {
                 helmet.colorApparelTwo = data.helmetColorTwo;
-                if (!data.helmetDecals.NullOrEmpty())
-                {
-                    var comp = helmet.GetComp<CompDecals>();
-                    comp.SetGraphic(data.helmetDecals);
-                }
+                //if (!data.helmetDecals.NullOrEmpty())
+                //{
+                //    var comp = helmet.GetComp<CompDecals>();
+                //    comp.SetGraphic(data.helmetDecals);
+                //}
             }
         }
     }
