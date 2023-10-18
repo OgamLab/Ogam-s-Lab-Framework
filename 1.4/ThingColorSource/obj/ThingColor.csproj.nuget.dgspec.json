@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\GrimForge40K-Core\\1.4\\ThingColorSource\\ThingColor.csproj": {}
+    "C:\\Users\\flango\\source\\repos\\_Rimworld Stuff\\ThingColorSource\\ThingColor.csproj": {}
   },
   "projects": {
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\GrimForge40K-Core\\1.4\\ThingColorSource\\ThingColor.csproj": {
+    "C:\\Users\\flango\\source\\repos\\_Rimworld Stuff\\ThingColorSource\\ThingColor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\GrimForge40K-Core\\1.4\\ThingColorSource\\ThingColor.csproj",
+        "projectUniqueName": "C:\\Users\\flango\\source\\repos\\_Rimworld Stuff\\ThingColorSource\\ThingColor.csproj",
         "projectName": "ThingColor",
-        "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\GrimForge40K-Core\\1.4\\ThingColorSource\\ThingColor.csproj",
-        "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
-        "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\GrimForge40K-Core\\1.4\\ThingColorSource\\obj\\",
+        "projectPath": "C:\\Users\\flango\\source\\repos\\_Rimworld Stuff\\ThingColorSource\\ThingColor.csproj",
+        "packagesPath": "C:\\Users\\flango\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\flango\\source\\repos\\_Rimworld Stuff\\ThingColorSource\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vova\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\flango\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,7 +42,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.*, )"
+              "version": "[2.2.1, )"
             },
             "Krafs.Rimworld.Ref": {
               "target": "Package",
@@ -54,9 +58,6 @@
       },
       "runtimes": {
         "win": {
-          "#import": []
-        },
-        "win-arm64": {
           "#import": []
         },
         "win-x64": {
