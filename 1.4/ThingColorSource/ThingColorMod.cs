@@ -18,14 +18,7 @@ namespace ThingColor
         {
             //new Harmony("ThingColorMod").PatchAll();
             var h = new Harmony("ThingColorMod");
-            h.Patch(AccessTools.Method(typeof(JobGiver_OptimizeApparel), "TryCreateRecolorJob"), transpiler: new HarmonyMethod(typeof(JobGiver_OptimizeApparel_TryCreateRecolorJob_Patch).GetMethod("Transpiler")));
-            h.Patch(AccessTools.Method(typeof(CompColorable), "Recolor"), prefix: new HarmonyMethod(typeof(CompColorable_Recolor_Patch).GetMethod("Prefix")));
-            h.Patch(AccessTools.Property(typeof(Pawn_ApparelTracker), "AnyApparelNeedsRecoloring").GetGetMethod(), postfix: new HarmonyMethod(typeof(Pawn_ApparelTracker_AnyApparelNeedsRecoloring_Patch).GetMethod("Postfix")));
-            h.Patch(AccessTools.Constructor(typeof(Dialog_StylingStation), new Type[] { typeof(Pawn), typeof(Thing) }), postfix: new HarmonyMethod(typeof(Dialog_StylingStation_Constructor_Patch).GetMethod("Postfix")));
-            h.Patch(AccessTools.Method(typeof(Dialog_StylingStation), "ApplyApparelColors"), postfix: new HarmonyMethod(typeof(Dialog_StylingStation_ApplyApparelColors_Patch).GetMethod("Postfix")));
-            h.Patch(AccessTools.Method(typeof(Dialog_StylingStation), "Reset"), prefix: new HarmonyMethod(typeof(Dialog_StylingStation_Reset_Patch).GetMethod("Prefix")));
-            h.Patch(AccessTools.Method(typeof(Dialog_StylingStation), "DrawPawn"), prefix: new HarmonyMethod(typeof(Dialog_StylingStation_DrawPawn_Patch).GetMethod("Prefix")));
-            h.Patch(AccessTools.Method(typeof(Dialog_StylingStation), "DrawApparelColor"), prefix: new HarmonyMethod(typeof(CompColorable_Recolor_Patch).GetMethod("Prefix")));
+            h.PatchAll();
 
             if (ModLister.HasActiveModWithName("Humanoid Alien Races"))
             {
@@ -90,7 +83,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(JobGiver_OptimizeApparel), "TryCreateRecolorJob")]
+    [HarmonyPatch(typeof(JobGiver_OptimizeApparel), "TryCreateRecolorJob")]
     public static class JobGiver_OptimizeApparel_TryCreateRecolorJob_Patch
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
@@ -120,7 +113,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(CompColorable), "Recolor")]
+    [HarmonyPatch(typeof(CompColorable), "Recolor")]
     public static class CompColorable_Recolor_Patch
     {
         public static bool Prefix(CompColorable __instance)
@@ -142,7 +135,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(Pawn_ApparelTracker), "AnyApparelNeedsRecoloring", MethodType.Getter)]
+    [HarmonyPatch(typeof(Pawn_ApparelTracker), "AnyApparelNeedsRecoloring", MethodType.Getter)]
     public static class Pawn_ApparelTracker_AnyApparelNeedsRecoloring_Patch
     {
         public static void Postfix(Pawn_ApparelTracker __instance, ref bool __result)
@@ -157,7 +150,7 @@ namespace ThingColor
         }
     }
 
-    //[HarmonyPatch(typeof(Dialog_StylingStation),  MethodType.Constructor, new Type[] { typeof(Pawn), typeof(Thing) })]
+    [HarmonyPatch(typeof(Dialog_StylingStation),  MethodType.Constructor, new Type[] { typeof(Pawn), typeof(Thing) })]
     public static class Dialog_StylingStation_Constructor_Patch
     {
         public static void Postfix(Dialog_StylingStation __instance)
@@ -203,7 +196,7 @@ namespace ThingColor
     }
     
     [HotSwappable]
-    //[HarmonyPatch(typeof(Dialog_StylingStation), "ApplyApparelColors")]
+    [HarmonyPatch(typeof(Dialog_StylingStation), "ApplyApparelColors")]
     public static class Dialog_StylingStation_ApplyApparelColors_Patch
     {
         public static void Postfix(Dialog_StylingStation __instance)
@@ -233,7 +226,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(Dialog_StylingStation), "Reset")]
+    [HarmonyPatch(typeof(Dialog_StylingStation), "Reset")]
     public static class Dialog_StylingStation_Reset_Patch
     {
         public static void Prefix(Dialog_StylingStation __instance, bool resetColors = true)
@@ -251,7 +244,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(Dialog_StylingStation), "DrawPawn")]
+    [HarmonyPatch(typeof(Dialog_StylingStation), "DrawPawn")]
     public static class Dialog_StylingStation_DrawPawn_Patch
     {
         public static Dictionary<Apparel, Color?> tmpOriginalColors = new();
@@ -326,7 +319,7 @@ namespace ThingColor
     }
 
     [HotSwappable]
-    //[HarmonyPatch(typeof(Dialog_StylingStation), "DrawApparelColor")]
+    [HarmonyPatch(typeof(Dialog_StylingStation), "DrawApparelColor")]
     public static class Dialog_StylingStation_DrawApparelColor_Patch
     {
         public static Dictionary<Apparel, Color> apparelColorsTwo = new();
