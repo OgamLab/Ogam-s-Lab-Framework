@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketHelmetBase">
+<!--<VFEPirates.WarcasketDef ParentName="VFEP_WarcasketHelmetBase">
 		<defName>TEST_Helmet</defName>
 		<label>TEST helmet</label>
 		<shortDescription>.</shortDescription>
@@ -54,6 +54,6 @@
 				</texPaths>
 			</li>
 		</comps>
-	</VFEPirates.WarcasketDef>
+	</VFEPirates.WarcasketDef>-->
 
 </Defs>
